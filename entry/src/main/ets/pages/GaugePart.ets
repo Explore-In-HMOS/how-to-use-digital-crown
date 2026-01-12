@@ -21,25 +21,17 @@ export struct GaugePart {
     .linearGradient({
       direction: GradientDirection.Bottom,
       colors: [[$r('app.color.base_background_gradient_start'), 0.0],
-        [$r('app.color.base_background_gradient_end'), 1],]
+        [$r('app.color.base_background_gradient_end'), 1]]
     })
     .onDigitalCrown((event: CrownEvent) => {
       event.stopPropagation()
-
-
       this.crownAccumulator += event.degree * -1
-
       const step = Math.floor(this.crownAccumulator / 3)
-
       if (step !== 0) {
         let newValue = (this.sliderValue * 100) + step
         newValue = Math.min(100, Math.max(0, newValue))
-
         this.sliderValue = newValue / 100
-
         this.crownAccumulator = this.crownAccumulator % 3
-
-        console.log('LAle: '+ this.sliderValue.toString())
       }
     })
   }

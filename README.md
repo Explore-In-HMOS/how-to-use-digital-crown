@@ -6,12 +6,12 @@ This codelab shows how to use the digital crown on HarmonyOS wearables. You’ll
 
 # Preview
 
-<p align="left">
+<div>
   <img src="screenshots/1.png" width="24%">
   <img src="screenshots/2.png" width="24%">
   <img src="screenshots/3.png" width="24%">
   <img src="screenshots/4.png" width="24%">
-</p>
+</div>
 
 # Use Cases
 
@@ -48,7 +48,6 @@ This codelab shows how to use the digital crown on HarmonyOS wearables. You’ll
 # Constraints and Restrictions
 ## Supported Devices
 - Huawei Watch 5
-
 
 # LICENSE
 

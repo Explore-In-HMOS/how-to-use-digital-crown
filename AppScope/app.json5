@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.hmosdemos.crownabilities",
+    "bundleName": "com.hmosdemos.wearable.how_to_use_digital_crown",
     "vendor": "hmosdemos",
     "versionCode": 1000000,
     "versionName": "1.0.0",

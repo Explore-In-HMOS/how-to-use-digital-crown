@@ -8,10 +8,10 @@ export struct TextPickerPart {
     Column() {
       TextPicker({ range: this.fruits, selected: this.select })
         .onChange((value: string | string[], index: number | number[]) => {
-          console.info('Picker item changed, value: ' + value + ', index: ' + index)
+          console.info('Picker item changed')
         })
         .onScrollStop((value: string | string[], index: number | number[]) => {
-          console.info('Picker scroll stopped, value: ' + value + ', index: ' + index)
+          console.info('Picker scroll stopped')
         })
         .disappearTextStyle({ color: Color.Red, font: { size: 12, weight: FontWeight.Lighter } })
         .textStyle({ color: Color.White, font: { size: 16, weight: FontWeight.Normal } })
@@ -25,32 +25,21 @@ export struct TextPickerPart {
     .linearGradient({
       direction: GradientDirection.Bottom,
       colors: [[$r('app.color.base_background_gradient_start'), 0.0],
-        [$r('app.color.base_background_gradient_end'), 1],]
+        [$r('app.color.base_background_gradient_end'), 1]]
     })
     .focusable(true)
     .focusOnTouch(true)
     .defaultFocus(true)
     .onDigitalCrown((event: CrownEvent) => {
       event.stopPropagation()
-
-      // Accumulate crown rotation
       this.crownAccumulator += event.degree
-
-      // Define how sensitive the crown should be (smaller = more sensitive)
       const stepThreshold = 3
       const step = Math.floor(this.crownAccumulator / stepThreshold)
-
       if (step !== 0) {
-        // Update the selected index
         let newIndex = this.select + step
         newIndex = Math.max(0, Math.min(this.fruits.length - 1, newIndex))
-
         this.select = newIndex
-
-        // Reset accumulator remainder
         this.crownAccumulator = this.crownAccumulator % stepThreshold
-
-        console.log('Selected by crown: ' + this.fruits[this.select])
       }
     })
   }

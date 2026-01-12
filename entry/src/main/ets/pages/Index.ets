@@ -19,7 +19,6 @@ export function MenuCard(title: string) {
   .backgroundColor(Color.Brown)
 }
 
-
 @Entry
 @Component
 struct Index {
@@ -29,11 +28,11 @@ struct Index {
   @Builder
   routeMap(name: string) {
     NavDestination() {
-      if (name === "SliderPart") {
+      if (name === 'SliderPart') {
         SliderPart()
-      } else if (name === "GaugePart") {
+      } else if (name === 'GaugePart') {
         GaugePart()
-      } else if (name === "TextPickerPart") {
+      } else if (name === 'TextPickerPart') {
         TextPickerPart()
       }
     }.hideTitleBar(true)
@@ -41,39 +40,34 @@ struct Index {
 
   build() {
     Navigation(NavigationService.getInstance().pageInfos) {
-
       ArcList({
         initialIndex: 0,
-        scroller: this.scroller,
+        scroller: this.scroller
       }) {
-
         ArcListItem() {
           MenuCard('SliderPart');
         }
         .width('95%')
         .margin({ bottom: 10 })
         .onClick(() => {
-          NavigationService.getInstance().pageInfos.pushPath({ name: "SliderPart" })
+          NavigationService.getInstance().pageInfos.pushPath({ name: 'SliderPart' })
         });
-
         ArcListItem() {
           MenuCard('GaugePart');
         }
         .width('95%')
         .margin({ bottom: 10 })
         .onClick(() => {
-          NavigationService.getInstance().pageInfos.pushPath({ name: "GaugePart" })
+          NavigationService.getInstance().pageInfos.pushPath({ name: 'GaugePart' })
         });
-
         ArcListItem() {
           MenuCard('TimePicker');
         }
         .width('95%')
         .margin({ bottom: 10 })
         .onClick(() => {
-          NavigationService.getInstance().pageInfos.pushPath({ name: "TextPickerPart" })
+          NavigationService.getInstance().pageInfos.pushPath({ name: 'TextPickerPart' })
         });
-
       }
       .borderRadius('466px')
       .focusable(true)
@@ -84,7 +78,7 @@ struct Index {
       .linearGradient({
         direction: GradientDirection.Bottom,
         colors: [[$r('app.color.base_background_gradient_start'), 0.0],
-          [$r('app.color.base_background_gradient_end'), 1],]
+          [$r('app.color.base_background_gradient_end'), 1]]
       })
     }
     .navDestination(this.routeMap)
@@ -98,6 +92,5 @@ struct Index {
       const newOffset = currentOffset - (event.degree * 3) // adjust scroll sensitivity
       this.scroller.scrollTo({ yOffset: newOffset, animation: false, xOffset: 0 })
     })
-
   }
 }
